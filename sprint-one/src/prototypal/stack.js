@@ -29,6 +29,9 @@ console.log(stackMethods.prototype)
   stackMethods.size = function(){
     return this.sizes;
   }
+
+  // var test = function(){}
+  // test.prototype = {}
 // // console.log(stackMethods);
 // // console.log(Stack.prototype);
 
