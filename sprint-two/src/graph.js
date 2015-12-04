@@ -55,7 +55,7 @@ Graph.prototype.hasEdge = function(fromNode, toNode){
 Graph.prototype.addEdge = function(fromNode, toNode){
   this.nodes[fromNode].push(toNode);
   this.nodes[toNode].push(fromNode);
-  console.log(this.nodes);
+  // console.log(this.nodes);
 };
 
 // ------------------------
