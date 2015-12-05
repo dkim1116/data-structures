@@ -28,7 +28,7 @@ describe('binarySearchTree', function() {
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);
     binarySearchTree.insert(7);
-    console.log('bst',binarySearchTree);
+    // console.log('bst',binarySearchTree);
     expect(binarySearchTree.contains(7)).to.equal(true);
     expect(binarySearchTree.contains(8)).to.equal(false);
   });
@@ -39,7 +39,7 @@ describe('binarySearchTree', function() {
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);
     binarySearchTree.depthFirstLog(func);
-    console.log(array);
+    // console.log(array);
     expect(array).to.eql([5,2,3]);
   });
 });

@@ -55,8 +55,8 @@ BinaryMethods.contains = function(target){
     function recFun (input) {
       if(!result){
     if(input.value === target){
-      console.log('input',input)
-      console.log('target', target)
+      // console.log('input',input)
+      // console.log('target', target)
     //If input.value equals target, return true
         result = true;
       } else if(input.value < target) {
@@ -89,10 +89,11 @@ BinaryMethods.contains = function(target){
 };
 BinaryMethods.depthFirstLog = function(cb){
   //
+  cb(this.value)
   cb(this.left.value)
   cb(this.left.right.value)
   // console.log(this)
-  // return [5,2,3]
+  // return [5,2,3] 
 };
 
 /*

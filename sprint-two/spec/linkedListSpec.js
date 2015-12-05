@@ -40,6 +40,7 @@ describe('linkedList', function() {
     linkedList.addToTail(4);
     linkedList.addToTail(6);   
     linkedList.addToTail(5);
+    // console.log(linkedList)
     expect(linkedList.contains(4)).to.equal(true);
     expect(linkedList.contains(5)).to.equal(true);
     expect(linkedList.contains(6)).to.equal(true);
