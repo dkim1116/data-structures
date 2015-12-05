@@ -12,10 +12,10 @@ var HashTable = function(){
 HashTable.prototype.insert = function(k, v){
   // get data at index
   var i = getIndexBelowMaxForKey(k, this._limit);
-  console.log(i);
+  // console.log(i);
   // save data to a variable
   var returnArr = this._storage.get(i);
-  console.log('return array in insert',returnArr)
+  // console.log('return array in insert',returnArr)
   // if its null or undefined
   if ( returnArr === null || returnArr === undefined) {
     // put key and value in an array.
@@ -44,12 +44,12 @@ HashTable.prototype.retrieve = function(k){
   var i = getIndexBelowMaxForKey(k, this._limit);
   // get data with the special index and save to a variable.
   var returnArr = this._storage.get(i);
-  console.log('this is the return array in retrieve',returnArr)
+  // console.log('this is the return array in retrieve',returnArr)
   // if the variable is undefined
   if ( returnArr === undefined ) {
     // change the value to null.
     returnArr = null
-    console.log(i);
+    // console.log(i);
     // return returnArr.
     return returnArr;  
   } else {
@@ -78,7 +78,7 @@ HashTable.prototype.remove = function(k){
         returnArr[i + 1] = null;  
         return this._storage.set(i,returnArr);
       }
-        console.log(this._storage.get(i))
+        // console.log(this._storage.get(i))
     }
   } else {
     return null;
