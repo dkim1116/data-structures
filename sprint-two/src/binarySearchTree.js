@@ -88,10 +88,23 @@ BinaryMethods.contains = function(target){
 
 };
 BinaryMethods.depthFirstLog = function(cb){
-  //
-  cb(this.value)
-  cb(this.left.value)
-  cb(this.left.right.value)
+  // //
+  // cb(this.value)
+  // cb(this.left.value)
+  // cb(this.left.right.value)
+  var recFun = function(x){
+    if(this.value!== null){
+      console.log(x)
+      cb(x.value)
+    // }
+      recFun(this.left)
+      recFun(this.right)
+    } 
+    // else {
+      // return
+    // }
+  }
+  recFun(this)
   // console.log(this)
   // return [5,2,3] 
 };

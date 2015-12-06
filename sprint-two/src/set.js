@@ -1,4 +1,7 @@
+// prototypal instantiation 
+// build a set constructor 
 var Set = function(){
+  // 
   var set = Object.create(setPrototype);
   set._storage = undefined;
   return set;

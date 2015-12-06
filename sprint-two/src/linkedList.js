@@ -2,89 +2,79 @@ var LinkedList = function(){
   var list = {};
   list.head = null;
   list.tail = null;
-
+  
+  // a method to add a node to the end of a list and create the nec references
   list.addToTail = function(value){
-      //Create a new node, link the last node to new node, 
-      //then make new node the tail
+      //Create a new node
       var newNode = Node(value);
-      //If there is no tail, make a node
+      //If there is no tail, 
       if(list.tail === null){
+      //make the node the tail.
         list.tail = newNode;
       }
-      //Once the tail exists,
+      //if there there is a tail
       else {
+        // make the new tail and assign a reference to it on the already existing tail
         list.tail.next = newNode;
+        // then overwrite the already existing tail with the already made reference to our new node
         list.tail = list.tail.next;
       }
-
-      if(list.head === null){
+      // if there is no head
+      if(list.head === null) {
+        // make the tail the head
         list.head = list.tail;
       }
-
-
     };
-
+    // returns the head and removes it. Then makes next node the head
     list.removeHead = function(){
+      // save the already existing head value into a seperate var.
       var returnVal = list.head.value;
+      // overwrite the head with the next node.
       list.head = list.head.next
+      // return the removed heads value.
       return returnVal;
     };
-
+    // recursively checks the list for the target
     list.contains = function(target){
-  //   for(var key in list){
-  //     if(list[key].value===target){
-  //       return true;
-  //     } 
-  //   }
-  // console.log(this)
-  //   return false;
-  var switch1 = false;
-// console.log(this.head.next.next.value)
-  if(this.head.value === target){
-    return true;
-  } else {
+    // create a switch var, that turns true when found and exits the recursive call
+    var switch1 = false;
+    // if the heads value equals the target.
+    if(this.head.value === target){
+      // flip the switch.
+      switch1 = true;
+    } else {
+    // make a seperate function for a conditional. 
     var recFun = function(x){
-      console.log(switch1);
-      // if(!switch1){
+      // if the argument's value equals the target.
       if(x.value === target){
+        // flip the switch.
         switch1 = true;
       } else {
+        // if there is a next value of the passed in arg.
         if(x.next !== null){
-          recFun(x.next)
+          // recursively call itself with the next value.
+          recFun(x.next);
         } 
       }
     }
-    console.log(this)
+    // start the recursion by invoking recFun with the list's head
     recFun(this.head);
   }
+  // return the switch
   return switch1;
 }
-
-  // var recFun = function(x){
-  //   if(x.value === target){
-  //         // console.log(x.value)
-  //         switch1 = true;
-  //         return
-  //       } else if(this.next !== null && this.next !== undefined){
-  //         // console.log('hi')
-  //         recFun(this.next)
-  //       } 
-  //     }
-
-  //     recFun(this.head)
-
-  //     return switch1
-  //   };
-
+    // return the list
     return list;
   };
-
+  // Build a node constructor
   var Node = function(value){
+    // create a node var and set it to an empty obj.
     var node = {};
-
+    // set the value property to the argument
     node.value = value;
+    // set the next property to null.
     node.next = null;
-
+    // return the constructed node instance
     return node;
   };
 
