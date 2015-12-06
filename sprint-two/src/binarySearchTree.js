@@ -26,14 +26,14 @@ BinaryMethods.insert = function(input){
       // if(thiz.value === null){
         // thiz.value = input;
     // console.log(thiz)
-      if (x.value < input) {
-        if (x.right === null) {
-          x.right = BinarySearchTree(input);
-        } else {
+    if (x.value < input) {
+      if (x.right === null) {
+        x.right = BinarySearchTree(input);
+      } else {
         recursiveFunction(x.right);
-        }
-      } else if( x.value > input ){
-        if(x.left === null){
+      }
+    } else if( x.value > input ){
+      if(x.left === null){
           // BinarySearchTree
           x.left = BinarySearchTree(input);
         } else {
@@ -49,62 +49,61 @@ BinaryMethods.insert = function(input){
 BinaryMethods.contains = function(target){
   //RECURSION
   var thiz = this;
-    var result = false;
+  var result = false;
   //Base case'
   // if(!result){
-    function recFun (input) {
-      if(!result){
-    if(input.value === target){
-      // console.log('input',input)
-      // console.log('target', target)
+  function recFun (input) {
+    if(!result){
+      if(input.value === target){
     //If input.value equals target, return true
         result = true;
       } else if(input.value < target) {
         if(input.right !== null){
-        recFun(input.right)     
+          recFun(input.right)     
 
         }
       //else if input.value is less than target, recursively call contains in input.right
       } else if(input.value > target) {
         if(input.left !== null){
-        recFun(input.left)
+          recFun(input.left)
+        }
       }
-      }
-    //   for(var key in this) {
-
-    //   }
-    //   if(this.value === target){
-    //     return (switched = true);
-    //   }
-     } else {
+      } else {
       return 
-     }   
-    }
+    }   
+  }
     // console.log(result)
     recFun(thiz)
-      return result
+    return result
   //else if this.value is greater than targetrecursively call contains in this.left
   //else if this.value = null return false
 
 };
 BinaryMethods.depthFirstLog = function(cb){
   // //
+  var thiz = this;
   // cb(this.value)
   // cb(this.left.value)
   // cb(this.left.right.value)
   var recFun = function(x){
-    if(this.value!== null){
-      console.log(x)
+    console.log(x.value)
+    if(x.value !== undefined){
+      // console.log(x)
       cb(x.value)
     // }
-      recFun(this.left)
-      recFun(this.right)
+    if(x.left!==null){
+      recFun(x.left)
+    }
+    if(x.right!== null){
+      recFun(x.right)
+    }
     } 
     // else {
       // return
     // }
   }
-  recFun(this)
+  // console.log(this)
+  recFun(thiz)
   // console.log(this)
   // return [5,2,3] 
 };
